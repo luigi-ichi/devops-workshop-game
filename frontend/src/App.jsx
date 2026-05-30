@@ -5,9 +5,13 @@ import paperSvg from './assets/paper.svg';
 import scissorsSvg from './assets/scissors.svg';
 import customScissorsIcon from './assets/scissors-hand.svg';
 
+const getAssetUrl = (localAsset, filename) => {
+  return import.meta.env.VITE_CDN_URL ? `${import.meta.env.VITE_CDN_URL}/${filename}` : localAsset;
+};
+
 const HandScissorsIcon = ({ className, size = 40 }) => (
   <img 
-    src={customScissorsIcon} 
+    src={getAssetUrl(customScissorsIcon, 'scissors-hand.svg')} 
     className={className} 
     style={{ width: size, height: size, objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
     alt="Scissors Hand Sign" 
@@ -15,9 +19,9 @@ const HandScissorsIcon = ({ className, size = 40 }) => (
 );
 
 const CHOICES = [
-  { id: 'rock', name: 'Rock', icon: HandFist, image: rockSvg },
-  { id: 'paper', name: 'Paper', icon: Hand, image: paperSvg },
-  { id: 'scissors', name: 'Scissors', icon: HandScissorsIcon, image: scissorsSvg },
+  { id: 'rock', name: 'Rock', icon: HandFist, image: getAssetUrl(rockSvg, 'rock.svg') },
+  { id: 'paper', name: 'Paper', icon: Hand, image: getAssetUrl(paperSvg, 'paper.svg') },
+  { id: 'scissors', name: 'Scissors', icon: HandScissorsIcon, image: getAssetUrl(scissorsSvg, 'scissors.svg') },
 ];
 
 function App() {
