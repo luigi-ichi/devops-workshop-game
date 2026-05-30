@@ -98,7 +98,7 @@ function App() {
       <h1
         className="font-jersey font-bold text-center text-5xl md:text-7xl tracking-wider text-stroke-lg mb-8 text-gradient-yellow"
       >
-        Rock Paper Scissors!
+        Jak En Poy!
       </h1>
 
       {/* Scores Area */}
